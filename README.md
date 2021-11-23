@@ -70,10 +70,11 @@ function following the 3 constants already provided to
   * If successful
     * Call the appropriate database function to `get` the last color (query
       constant is `sqlLast`)
+      * For this second database query, you will need to create an empty params array to pass into the `get` function.
     * Respond through **Express** with this last color in JSON format
 
 Verify it works properly by going to 
-[http://localhost:5000/colorsadd/Purple][insert-color] in your browser.
+[http://localhost:5000/colors/add/Purple][insert-color] in your browser.
 
 You should see this response:
 
