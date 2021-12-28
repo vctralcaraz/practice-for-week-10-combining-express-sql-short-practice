@@ -13,7 +13,7 @@ and populate a few rows. Exit the **SQLite CLI** using `Ctrl+d`.
 
 Start the Express server in development mode using `npm run dev`.
 
-Open your browser (e.g. Google Chrome), and go to 
+Open your browser (e.g. Google Chrome), and go to
 [http://localhost:5000][localhost].
 
 You should see this response:
@@ -27,7 +27,7 @@ You should see this response:
 Open __server/app.js__. After the setup for Express
 
 * Add the code to require `sqlite3`.
-* Define a constant for the database using `DATA_SOURCE` (constant already 
+* Define a constant for the database using `DATA_SOURCE` (constant already
   defined) for the file, and `sqlite3.OPEN_READWRITE` for the permissions.
 
 Verify it works by going to [http://localhost:5000/colors][all-colors] in your
@@ -41,8 +41,8 @@ You should see this response:
 
 ## Step 2: Query the database
 
-Find the route handler for `/color/:id`. Complete the body of the handler
-function to 
+Find the route handler for `/colors/:id`. Complete the body of the handler
+function to:
 
 * Declare a constant for the `sql` statement needed to get all fields for a single
   row in the colors table filtered by its `id`.
@@ -59,29 +59,6 @@ You should see this response:
 ```json
 {"id":1,"name":"Red"}
 ```
-
-## Step 3: After INSERT, return the new row
-
-Find the route handler for `/color/add/:name`. Complete the body of the handler
-function following the 3 constants already provided to
-
-* Call the appropriate database function to `run` the insert
-  * If an error occurs, call the Express error handling middleware (`next(err)`)
-  * If successful
-    * Call the appropriate database function to `get` the last color (query
-      constant is `sqlLast`)
-      * For this second database query, you will need to create an empty params array to pass into the `get` function.
-    * Respond through **Express** with this last color in JSON format
-
-Verify it works properly by going to 
-[http://localhost:5000/colors/add/Purple][insert-color] in your browser.
-
-You should see this response:
-
-```json
-{"id":4,"name":"Purple"}
-```
-
 
 [localhost]: http://localhost:5000/
 [all-colors]: http://localhost:5000/colors
